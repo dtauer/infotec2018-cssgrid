@@ -1,0 +1,253 @@
+@import "base-styles.css";
+
+body {
+  font-size: 1rem;
+}
+
+button {
+  background: var(--orange);
+  color: white;
+  border: 0;
+  padding: 0.5rem 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* .wrapper */
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 400px;
+  background: white url(images/photographer.jpg);
+  background-size: cover;
+  background-position: center left;
+  padding: 50px;
+}
+
+.hero > * {
+  background: var(--teal);
+  padding: 0.5rem;
+  max-width: 300px;
+}
+
+.cta {
+  background: var(--teal);
+  padding: 0.5rem;
+}
+
+.cta p {
+  margin: 0;
+}
+
+.price {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+/* Navigation */
+
+.menu ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu a {
+  background: var(--orange);
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+[aria-controls="menu-list"] {
+  display: none;
+}
+
+/* Features! */
+
+.feature {
+  background: white;
+  padding: 1rem;
+  border: 1px solid white;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature .icon {
+  font-size: 3rem;
+}
+
+.feature h3 {
+  color: var(--black);
+}
+
+.feature p {
+  color: var(--gray);
+}
+
+/* About Section */
+
+.about {
+  background: white;
+  padding: 3rem;
+}
+
+.about > * {
+  margin: auto;
+}
+
+.about__details h2 {
+  color: var(--black);
+}
+
+.about__details p {
+  color: var(--gray);
+}
+
+/* Gallery! */
+.gallery > * {
+  float: left;
+}
+
+.gallery img {
+  width: auto;
+  margin: 0;
+}
+
+.gallery h2 {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+/***********   If CSS Grid is supported   *******************/
+@supports (display: grid) {
+  .wrapper {
+    /* create a grid on the whole wrapper to make spacing sections easier */
+  }
+
+  .wrapper > *:after {
+    /* hiding the :after regions that were clearing our floats */
+  }
+
+  .top {
+    /* Display grid, add gap, create template-areas */
+  }
+  .hero {
+    /* display grid and align content */
+  }
+  .cta {
+    /* display grid and center */
+  }
+
+  .cta1 {
+    /* Put in the correct grid area */
+  }
+
+  .cta2 {
+    /* Put in the correct grid area */
+  }
+
+  .menu ul {
+    /* Display Grid, add gap, auto-fit columns (min 160px) */
+  }
+
+  .features {
+    /* Display Grid, add gap, auto-fit columns (min 200px)*/
+  }
+
+  .about {
+    /* Two Column Grid */
+  }
+
+  .gallery {
+    /* Display Grid, add gap, auto-fit columns (min 200px) */
+  }
+
+  .gallery h2 {
+    /* span the whole first row */
+
+    /* Display grid so gradients are side-by-side */
+  }
+
+  .gallery h2:before,
+  .gallery h2:after {
+    display: block;
+    height: 10px;
+    content: "";
+    background: linear-gradient(to left, var(--orange), transparent);
+  }
+
+  .gallery h2:after {
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    /* reorder the menu */
+  }
+  [aria-controls="menu-list"] {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .menu ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+
+  [aria-expanded="true"] ~ ul {
+    display: block;
+    display: grid;
+    max-height: 500px;
+  }
+
+  [aria-expanded="false"] .close {
+    display: none;
+  }
+
+  [aria-expanded="true"] .close {
+    display: inline-block;
+  }
+
+  [aria-expanded="true"] .open {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .top {
+    /* rearrage the template areas */
+  }
+
+  /* About */
+  .about {
+    /* single column */
+  }
+}
+
+@media (max-width: 500px) {
+  .top {
+    /* rearrange template areas */
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+}
